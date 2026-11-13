@@ -1,0 +1,43 @@
+{
+  "fixture_id": "FIX-06",
+  "description": "Critical Hyperglycemic Reading (Glucose 420 mg/dL) triggering SR-EMG-1 Alert",
+  "laboratory": "Apollo Diagnostics, Belagavi Centre",
+  "patient": {
+    "patient_id": "ANON_55009",
+    "age": 55,
+    "gender": "M"
+  },
+  "document_type": "LAB_REPORT",
+  "raw_text": "APOLLO DIAGNOSTICS\nPATIENT: ANON_55009 AGE: 55 / M\nEMERGENCY BIOCHEMISTRY\nFASTING BLOOD GLUCOSE : 420.0 *** mg/dL (70.0 - 100.0) [CRITICAL HIGH]\nHBA1C : 12.8 *** % (4.0 - 5.6)",
+  "expected_biomarkers": [
+    {
+      "parameter_id": "fbs",
+      "observed_value": 420.0,
+      "unit": "mg/dL",
+      "ref_low": 70.0,
+      "ref_high": 100.0,
+      "expected_status": "ABOVE_RANGE",
+      "is_critical": true
+    },
+    {
+      "parameter_id": "hba1c",
+      "observed_value": 12.8,
+      "unit": "%",
+      "ref_low": 4.0,
+      "ref_high": 5.6,
+      "expected_status": "ABOVE_RANGE",
+      "is_critical": true
+    }
+  ],
+  "expected_outcome": "SUCCESS_WITH_EMERGENCY_DIRECTIVE",
+  "expected_badges": [
+    "AMBER_CRITICAL",
+    "AMBER_CRITICAL"
+  ],
+  "critical_alert": true,
+  "must_contain_audio": "ತಕ್ಷಣದ ವೈದ್ಯಕೀಯ ಗಮನವನ್ನು ಬಯಸುತ್ತದೆ. ದಯವಿಟ್ಟು ಇಂದು ಅಥವಾ ಆದಷ್ಟು ಬೇಗ ನಿಮ್ಮ ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ",
+  "must_not_contain": [
+    "You are dying",
+    "Take 20 units insulin"
+  ]
+}

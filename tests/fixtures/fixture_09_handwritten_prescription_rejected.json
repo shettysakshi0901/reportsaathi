@@ -1,0 +1,17 @@
+{
+  "fixture_id": "FIX-09",
+  "description": "Doctor's Handwritten Outpatient Prescription Slip (Negative Test Case - SR-DOC-1)",
+  "laboratory": "NONE - Outpatient Clinic Consultation Slip",
+  "patient": {
+    "patient_id": "ANON_51299",
+    "age": 51,
+    "gender": "M"
+  },
+  "document_type": "PRESCRIPTION",
+  "raw_text": "DR. K. S. RAO, MBBS, MD (GEN MED)\nREG NO: KMC 48291\nSRI VENKATESHWARA CLINIC, JAYANAGAR, BENGALURU\nPatient: ANON_51299   Date: 12/11/2026\nRx:\n1. Tab Metformin 500mg - 1-0-1 (after food) x 1 month\n2. Tab Telmisartan 40mg - 1-0-0 (morning) x 1 month\n3. Tab Atorvastatin 10mg - 0-0-1 (night) x 1 month\nAdvice: Restrict salt and sugar. Review after 1 month.\n[Doctor Cursive Signature & Stamp]",
+  "expected_outcome": "REJECTED_IMMEDIATELY",
+  "rejection_code": "HANDWRITTEN_PRESCRIPTION_BLOCKED",
+  "redirect_target": "/rejection/{session_id}",
+  "audio_script_played": "KS-REJ-01",
+  "expected_audio_phrase": "ಇದು ವೈದ್ಯರ ಕೈಬರಹದ ಚೀಟಿಯಾಗಿದೆ. ಸುರಕ್ಷತೆಯ ದೃಷ್ಟಿಯಿಂದ ನಾವು ಕೇವಲ ಲ್ಯಾಬ್ ವರದಿಗಳನ್ನು ಮಾತ್ರ ವಿವರಿಸುತ್ತೇವೆ"
+}

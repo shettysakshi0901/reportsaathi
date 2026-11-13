@@ -1,0 +1,53 @@
+{
+  "fixture_id": "FIX-05",
+  "description": "Comprehensive Chronic Health Panel from Manipal Hospital Labs (Sugar, Renal, BP)",
+  "laboratory": "Manipal Hospital Laboratories, Bengaluru",
+  "patient": {
+    "patient_id": "ANON_68551",
+    "age": 68,
+    "gender": "F"
+  },
+  "document_type": "LAB_REPORT",
+  "raw_text": "MANIPAL HOSPITALS CLINICAL LABORATORY\nPATIENT: ANON_68551 AGE: 68 / F\nCOMPREHENSIVE DIABETES CHECK\nGLUCOSE FASTING : 138.0 mg/dL (74.0 - 106.0)\nHBA1C : 7.6 % (4.0 - 5.6)\nSERUM CREATININE : 0.95 mg/dL (0.50 - 1.10)\nTOTAL CHOLESTEROL : 185.0 mg/dL (< 200.0)",
+  "expected_biomarkers": [
+    {
+      "parameter_id": "fbs",
+      "observed_value": 138.0,
+      "unit": "mg/dL",
+      "ref_low": 74.0,
+      "ref_high": 106.0,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "hba1c",
+      "observed_value": 7.6,
+      "unit": "%",
+      "ref_low": 4.0,
+      "ref_high": 5.6,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "creatinine",
+      "observed_value": 0.95,
+      "unit": "mg/dL",
+      "ref_low": 0.5,
+      "ref_high": 1.1,
+      "expected_status": "IN_RANGE"
+    },
+    {
+      "parameter_id": "total_cholesterol",
+      "observed_value": 185.0,
+      "unit": "mg/dL",
+      "ref_high": 200.0,
+      "expected_status": "IN_RANGE"
+    }
+  ],
+  "expected_outcome": "SUCCESS",
+  "expected_badges": [
+    "AMBER",
+    "AMBER",
+    "GREEN",
+    "GREEN"
+  ],
+  "critical_alert": false
+}

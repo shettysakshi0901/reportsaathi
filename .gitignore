@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+# VS Code
+.vscode/
+# Distribution
+build/
+dist/
+*.egg-info/
+# Docker
+*.env
+# OS
+Thumbs.db
+.DS_Store

@@ -1,0 +1,50 @@
+{
+  "fixture_id": "FIX-03",
+  "description": "Lipid Profile & Blood Pressure Panel from Metropolis Healthcare (Mixed out-of-range)",
+  "laboratory": "Metropolis Healthcare, Mangaluru Branch",
+  "patient": {
+    "patient_id": "ANON_66904",
+    "age": 66,
+    "gender": "M"
+  },
+  "document_type": "LAB_REPORT",
+  "raw_text": "METROPOLIS HEALTHCARE\nPATIENT: ANON_66904 AGE: 66 / M\nLIPID PROFILE TEST\nTOTAL CHOLESTEROL : 245.0 mg/dL (< 200.0)\nTRIGLYCERIDES : 210.0 mg/dL (< 150.0)\nHDL CHOLESTEROL : 38.0 mg/dL (> 40.0)\nLDL CHOLESTEROL : 158.0 mg/dL (< 100.0)\nBLOOD PRESSURE (RECORDED) : 150/94 mmHg (90-120 / 60-80)",
+  "expected_biomarkers": [
+    {
+      "parameter_id": "total_cholesterol",
+      "observed_value": 245.0,
+      "unit": "mg/dL",
+      "ref_high": 200.0,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "triglycerides",
+      "observed_value": 210.0,
+      "unit": "mg/dL",
+      "ref_high": 150.0,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "hdl",
+      "observed_value": 38.0,
+      "unit": "mg/dL",
+      "ref_low": 40.0,
+      "expected_status": "BELOW_RANGE"
+    },
+    {
+      "parameter_id": "ldl",
+      "observed_value": 158.0,
+      "unit": "mg/dL",
+      "ref_high": 100.0,
+      "expected_status": "ABOVE_RANGE"
+    }
+  ],
+  "expected_outcome": "SUCCESS",
+  "expected_badges": [
+    "AMBER",
+    "AMBER",
+    "AMBER",
+    "AMBER"
+  ],
+  "critical_alert": false
+}
