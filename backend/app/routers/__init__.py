@@ -1,4 +1,3 @@
-
 """Router package initializer."""
 
 from .health import router as health_router
