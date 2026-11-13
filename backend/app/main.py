@@ -7,7 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .routers import health, value
 from .models.database import Base, engine
-from .models.value import ValueModel
 
 
 app = FastAPI(title="ReportSaathi Backend")
