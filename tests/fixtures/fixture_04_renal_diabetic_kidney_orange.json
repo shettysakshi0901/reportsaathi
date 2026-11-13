@@ -1,0 +1,49 @@
+{
+  "fixture_id": "FIX-04",
+  "description": "Renal & Kidney Safety Panel from Orange Health (Elevated Creatinine & Microalbumin)",
+  "laboratory": "Orange Health Labs, Bengaluru South",
+  "patient": {
+    "patient_id": "ANON_71320",
+    "age": 71,
+    "gender": "M"
+  },
+  "document_type": "LAB_REPORT",
+  "raw_text": "ORANGE HEALTH LABS\nPATIENT: ANON_71320 AGE: 71 / M\nRENAL FUNCTION PROFILE\nSERUM CREATININE : 1.80 mg/dL (0.70 - 1.20)\nBLOOD UREA NITROGEN : 58.0 mg/dL (15.0 - 40.0)\nURINE MICROALBUMIN / CREATININE RATIO : 180.0 mg/g (< 30.0)",
+  "expected_biomarkers": [
+    {
+      "parameter_id": "creatinine",
+      "observed_value": 1.8,
+      "unit": "mg/dL",
+      "ref_low": 0.7,
+      "ref_high": 1.2,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "blood_urea",
+      "observed_value": 58.0,
+      "unit": "mg/dL",
+      "ref_low": 15.0,
+      "ref_high": 40.0,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "microalbumin",
+      "observed_value": 180.0,
+      "unit": "mg/g",
+      "ref_high": 30.0,
+      "expected_status": "ABOVE_RANGE"
+    }
+  ],
+  "expected_outcome": "SUCCESS",
+  "expected_badges": [
+    "AMBER",
+    "AMBER",
+    "AMBER"
+  ],
+  "critical_alert": false,
+  "must_not_contain": [
+    "Diabetic Nephropathy",
+    "Kidney Failure",
+    "ಕಿಡ್ನಿ ಹಾಳಾಗಿದೆ"
+  ]
+}

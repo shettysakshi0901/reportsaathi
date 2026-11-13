@@ -1,0 +1,25 @@
+{
+  "fixture_id": "FIX-08",
+  "description": "Lab Report with Missing Printed Reference Interval (Triggers ICMR Fallback SR-RNG-1)",
+  "laboratory": "Rural Primary Health Centre Diagnostic Unit, Mandya",
+  "patient": {
+    "patient_id": "ANON_60219",
+    "age": 60,
+    "gender": "M"
+  },
+  "document_type": "LAB_REPORT",
+  "raw_text": "TALUK GENERAL HOSPITAL MANDYA - LAB\nNAME: ANON_60219 AGE: 60 / M\nTEST: FASTING BLOOD SUGAR\nRESULT: 156.0 mg/dL\nREF RANGE: [NOT SPECIFIED / BLANK]",
+  "expected_biomarkers": [
+    {
+      "parameter_id": "fbs",
+      "observed_value": 156.0,
+      "unit": "mg/dL",
+      "ref_low": 70.0,
+      "ref_high": 100.0,
+      "fallback_applied": "ICMR_STANDARD",
+      "expected_status": "ABOVE_RANGE"
+    }
+  ],
+  "expected_outcome": "SUCCESS_WITH_DISCLAIMER",
+  "expected_disclaimer_kn": "ಲ್ಯಾಬ್ ಮಿತಿ ಮುದ್ರಿತವಾಗಿಲ್ಲ; ಸಾಮಾನ್ಯ ವೈದ್ಯಕೀಯ ಮಾನದಂಡ ಬಳಸಲಾಗಿದೆ"
+}

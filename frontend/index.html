@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReportSaathi | Healthcare Simplified</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { font-family: Inter, Arial, sans-serif; background:#f5f7fb; }
+.sidebar { background:#102b46; }
+.nav-item { padding:12px 14px; border-radius:9px; color:#c6d5e3; display:flex; gap:12px; cursor:pointer; }
+.nav-item.active, .nav-item:hover { background:#244764; color:white; }
+.card { background:white; border:1px solid #e8edf3; border-radius:14px; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<div class="flex min-h-screen">
+
+<!-- Sidebar -->
+<aside class="sidebar w-64 min-h-screen p-5 text-white hidden md:block">
+  <div class="text-2xl font-bold mb-2">Report<span class="text-teal-400">Saathi</span></div>
+  <p class="text-xs text-slate-400 mb-10">Healthcare, made understandable.</p>
+
+  <p class="text-xs text-slate-400 mb-3">WORKSPACE</p>
+  <nav class="space-y-2">
+    <div class="nav-item active">▦ &nbsp; Overview</div>
+    <div class="nav-item" onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})">↑ &nbsp; Upload Report</div>
+    <div class="nav-item" onclick="document.getElementById('history').scrollIntoView({behavior:'smooth'})">▤ &nbsp; Report History</div>
+  </nav>
+
+  <div class="mt-16 p-4 rounded-xl bg-slate-700/40">
+    <p class="font-semibold text-sm">Need assistance?</p>
+    <p class="text-xs text-slate-300 mt-2">Understand your medical reports with ReportSaathi.</p>
+  </div>
+
+  <div class="mt-10 text-xs text-slate-400">ReportSaathi v1.0</div>
+</aside>
+
+<!-- Main -->
+<main class="flex-1 p-5 md:p-9 max-w-7xl mx-auto w-full">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-9">
+    <div>
+      <p class="text-sm text-gray-500">Healthcare assistant</p>
+      <h1 class="text-2xl font-bold text-slate-800 mt-1">Dashboard</h1>
+    </div>
+    <div class="flex items-center gap-3">
+      <select id="language" class="border rounded-lg px-3 py-2 bg-white text-sm">
+        <option>English</option>
+        <option>Kannada</option>
+        <option>Hindi</option>
+        <option>Malayalam</option>
+        <option>Tamil</option>
+      </select>
+      <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold">RS</div>
+    </div>
+  </header>
+
+  <!-- Welcome -->
+  <section class="rounded-2xl p-7 md:p-9 text-white mb-7"
+    style="background:linear-gradient(110deg,#123653,#087e83)">
+    <p class="text-teal-200 text-sm mb-3">YOUR HEALTHCARE COMPANION</p>
+    <h2 class="text-2xl md:text-3xl font-bold">Understand your health reports better.</h2>
+    <p class="text-sm text-slate-200 mt-3 max-w-xl">
+      Upload your medical reports and prescriptions to make complex medical information easier to understand.
+    </p>
+    <button onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})"
+      class="mt-6 bg-white text-teal-900 px-5 py-3 rounded-lg font-semibold text-sm hover:bg-teal-50">
+      Upload a report →
+    </button>
+  </section>
+
+  <!-- Status cards -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+    <div class="card p-5">
+      <p class="text-sm text-gray-500">Backend connection</p>
+      <h3 id="health" class="text-xl font-bold mt-3 text-gray-400">Checking...</h3>
+      <p class="text-xs text-gray-400 mt-2">FastAPI server status</p>
+    </div>
+    <div class="card p-5">
+      <p class="text-sm text-gray-500">Reports uploaded</p>
+      <h3 class="text-3xl font-bold mt-3 text-slate-800" id="count">0</h3>
+      <p class="text-xs text-gray-400 mt-2">Current browser session</p>
+    </div>
+    <div class="card p-5">
+      <p class="text-sm text-gray-500">Database value</p>
+      <h3 class="text-xl font-bold mt-3 text-slate-800" id="dbvalue">Checking...</h3>
+      <p class="text-xs text-gray-400 mt-2">Backend API response</p>
+    </div>
+  </section>
+
+  <!-- Upload -->
+  <section id="upload" class="card p-6 mb-8">
+    <div class="mb-5">
+      <h2 class="text-lg font-bold text-slate-800">Upload medical report</h2>
+      <p class="text-sm text-gray-500 mt-1">Select a report from your device.</p>
+    </div>
+
+    <label for="file" class="block border-2 border-dashed border-teal-300 rounded-xl p-9 text-center cursor-pointer hover:bg-teal-50">
+      <div class="text-4xl text-teal-600 mb-3">↑</div>
+      <p class="font-semibold text-slate-700">Choose a medical report</p>
+      <p class="text-sm text-gray-400 mt-2">PDF, JPG or PNG files</p>
+      <input id="file" type="file" accept=".pdf,.jpg,.jpeg,.png" class="hidden">
+    </label>
+
+    <div id="fileInfo" class="hidden mt-4 p-4 bg-teal-50 rounded-lg text-sm text-slate-700"></div>
+    <p class="text-xs text-gray-400 mt-4">Demo interface: file selection and preview are available. Actual report analysis requires a connected backend processing endpoint.</p>
+  </section>
+
+  <!-- Features -->
+  <section class="mb-8">
+    <h2 class="text-lg font-bold text-slate-800 mb-4">What ReportSaathi helps with</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="card p-5">
+        <div class="text-2xl mb-3">▤</div>
+        <h3 class="font-bold text-slate-800">Report Understanding</h3>
+        <p class="text-sm text-gray-500 mt-2">Make medical terminology easier to understand.</p>
+      </div>
+      <div class="card p-5">
+        <div class="text-2xl mb-3">✚</div>
+        <h3 class="font-bold text-slate-800">Prescription Explanation</h3>
+        <p class="text-sm text-gray-500 mt-2">Understand prescription information in simple language.</p>
+      </div>
+      <div class="card p-5">
+        <div class="text-2xl mb-3">文</div>
+        <h3 class="font-bold text-slate-800">Language Support</h3>
+        <p class="text-sm text-gray-500 mt-2">Choose a preferred language for explanations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section id="history" class="card p-6">
+    <h2 class="text-lg font-bold text-slate-800">Recent reports</h2>
+    <div id="historyList" class="text-sm text-gray-400 text-center py-8">
+      No reports selected yet.
+    </div>
+  </section>
+
+  <footer class="text-center text-xs text-gray-400 py-8">
+    ReportSaathi · Healthcare information made simpler.
+    <br>For educational support only. Not a substitute for professional medical advice.
+  </footer>
+
+</main>
+</div>
+
+<script>
+const API = "http://localhost:8000";
+
+async function checkBackend() {
+  const health = document.getElementById("health");
+  try {
+    const response = await fetch(`${API}/api/health`);
+    if (!response.ok) throw new Error("Server error");
+    const data = await response.json();
+    health.textContent = data.status === "healthy" ? "Connected" : data.status;
+    health.className = "text-xl font-bold mt-3 text-green-600";
+  } catch (error) {
+    health.textContent = "Disconnected";
+    health.className = "text-xl font-bold mt-3 text-red-600";
+  }
+}
+
+async function checkValue() {
+  const value = document.getElementById("dbvalue");
+  try {
+    const response = await fetch(`${API}/api/value`);
+    if (!response.ok) throw new Error("Endpoint unavailable");
+    const data = await response.json();
+    value.textContent = data.value ?? "No data";
+  } catch (error) {
+    value.textContent = "Not available";
+  }
+}
+
+let uploadedCount = 0;
+
+document.getElementById("file").addEventListener("change", function(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const allowed = ["application/pdf", "image/jpeg", "image/png"];
+  if (!allowed.includes(file.type)) {
+    alert("Please select a PDF, JPG or PNG file.");
+    event.target.value = "";
+    return;
+  }
+
+  uploadedCount++;
+  document.getElementById("count").textContent = uploadedCount;
+
+  const info = document.getElementById("fileInfo");
+  info.classList.remove("hidden");
+  info.textContent = "Selected: " + file.name + " (" +
+    (file.size / 1024).toFixed(1) + " KB) — Preview only; not yet uploaded to the server.";
+
+  const history = document.getElementById("historyList");
+  if (uploadedCount === 1) history.innerHTML = "";
+
+  const item = document.createElement("div");
+  item.className = "flex justify-between items-center border-b py-3 gap-3";
+  const name = document.createElement("span");
+  name.className = "text-slate-700 truncate";
+  name.textContent = file.name;
+  const status = document.createElement("span");
+  status.className = "text-xs text-teal-700";
+  status.textContent = "Selected locally";
+  item.append(name, status);
+  history.prepend(item);
+});
+
+checkBackend();
+checkValue();
+</script>
+
+</body>
+</html>

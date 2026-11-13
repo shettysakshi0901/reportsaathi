@@ -1,0 +1,50 @@
+{
+  "fixture_id": "FIX-02",
+  "description": "Uncontrolled Type 2 Diabetes Panel from Agilus Diagnostics (High sugar & HbA1c)",
+  "laboratory": "Agilus Diagnostics Ltd, Mysuru Central",
+  "patient": {
+    "patient_id": "ANON_62411",
+    "age": 62,
+    "gender": "F"
+  },
+  "document_type": "LAB_REPORT",
+  "raw_text": "AGILUS DIAGNOSTICS\nPATIENT: ANON_62411 AGE: 62 / F\nDEPARTMENT OF BIOCHEMISTRY\nTEST | RESULT | UNIT | BIOLOGICAL REFERENCE RANGE\nFASTING BLOOD SUGAR (FBS) : 195.0 * mg/dL (70 - 100)\nPOST PRANDIAL BLOOD SUGAR (PPBS) : 280.0 * mg/dL (70 - 140)\nGLYCOSYLATED HEMOGLOBIN (HBA1C) : 9.2 * % (4.0 - 5.6)",
+  "expected_biomarkers": [
+    {
+      "parameter_id": "fbs",
+      "observed_value": 195.0,
+      "unit": "mg/dL",
+      "ref_low": 70.0,
+      "ref_high": 100.0,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "ppbs",
+      "observed_value": 280.0,
+      "unit": "mg/dL",
+      "ref_low": 70.0,
+      "ref_high": 140.0,
+      "expected_status": "ABOVE_RANGE"
+    },
+    {
+      "parameter_id": "hba1c",
+      "observed_value": 9.2,
+      "unit": "%",
+      "ref_low": 4.0,
+      "ref_high": 5.6,
+      "expected_status": "ABOVE_RANGE"
+    }
+  ],
+  "expected_outcome": "SUCCESS",
+  "expected_badges": [
+    "AMBER",
+    "AMBER",
+    "AMBER"
+  ],
+  "critical_alert": false,
+  "must_not_contain": [
+    "You have diabetes",
+    "Take Metformin",
+    "ಹೆಚ್ಚು ಮಾತ್ರೆ ತೆಗೆದುಕೊಳ್ಳಿ"
+  ]
+}

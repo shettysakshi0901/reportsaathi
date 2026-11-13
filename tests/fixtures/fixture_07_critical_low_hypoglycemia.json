@@ -1,0 +1,29 @@
+{
+  "fixture_id": "FIX-07",
+  "description": "Critical Hypoglycemic Reading (Glucose 48 mg/dL) triggering SR-EMG-1 Low Alert",
+  "laboratory": "Anand Diagnostic Laboratory, Bengaluru",
+  "patient": {
+    "patient_id": "ANON_74103",
+    "age": 74,
+    "gender": "F"
+  },
+  "document_type": "LAB_REPORT",
+  "raw_text": "ANAND DIAGNOSTIC LABORATORY\nPATIENT: ANON_74103 AGE: 74 / F\nRANDOM BLOOD GLUCOSE : 48.0 *** mg/dL (70.0 - 140.0) [CRITICAL LOW ALERT]",
+  "expected_biomarkers": [
+    {
+      "parameter_id": "rbs",
+      "observed_value": 48.0,
+      "unit": "mg/dL",
+      "ref_low": 70.0,
+      "ref_high": 140.0,
+      "expected_status": "BELOW_RANGE",
+      "is_critical": true
+    }
+  ],
+  "expected_outcome": "SUCCESS_WITH_EMERGENCY_DIRECTIVE",
+  "expected_badges": [
+    "AMBER_CRITICAL"
+  ],
+  "critical_alert": true,
+  "must_contain_audio": "ರಕ್ತದಲ್ಲಿನ ಸಕ್ಕರೆ ಪ್ರಮಾಣವು ತೀರಾ ಅಪಾಯಕಾರಿ ಮಟ್ಟಕ್ಕೆ ಕಡಿಮೆಯಾಗಿದೆ"
+}
